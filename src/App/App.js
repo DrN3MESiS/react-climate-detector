@@ -4,20 +4,22 @@ import React from 'react';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = [];
+    this.state = { lat: null };
+
+    window.navigator.geolocation.getCurrentPosition(
+      position => {
+        this.setState({ lat: position.coords.latitude });
+      },
+      failure => console.log(failure),
+    );
   }
 
   //Basic equirement
   render() {
-    window.navigator.geolocation.getCurrentPosition(
-      position => console.log(position),
-      failure => console.log(failure),
-    );
-
     return (
       <React.Fragment>
         <div>
-          <h1>Loading...</h1>
+          <h1>Latitude: {this.state.lat}</h1>
         </div>
       </React.Fragment>
     );
