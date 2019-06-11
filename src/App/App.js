@@ -25,8 +25,7 @@ class App extends React.Component {
     console.log('Data has been updated...');
   }
 
-  //Basic equirement
-  render() {
+  renderContent() {
     if (this.state.errMsg && !this.state.lat) {
       return (
         <React.Fragment>
@@ -42,10 +41,15 @@ class App extends React.Component {
     } else if (!this.state.errMsg && !this.state.lat) {
       return (
         <React.Fragment>
-          <Loader content="Loading your location..." />
+          <Loader content="Loading your location... (Please allow us to use your location by accepting the request)" />
         </React.Fragment>
       );
     }
+  }
+
+  //Basic equirement
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 

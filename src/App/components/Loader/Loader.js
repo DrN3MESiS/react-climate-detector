@@ -12,4 +12,8 @@ const Loader = props => {
   );
 };
 
+Loader.defaultProps = {
+  content: 'Loading...',
+};
+
 export default Loader;
