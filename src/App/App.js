@@ -1,5 +1,6 @@
 import React from 'react';
 import SeasonDisplay from './components/SeasonDisplay/SeasonDisplay';
+import Loader from './components/Loader/Loader';
 
 class App extends React.Component {
   state = { lat: null, errMsg: '' };
@@ -41,20 +42,7 @@ class App extends React.Component {
     } else if (!this.state.errMsg && !this.state.lat) {
       return (
         <React.Fragment>
-          <div className="ui segment">
-            <div className="ui active transition visible inverted dimmer">
-              <div className="content">
-                <div className="ui inverted text loader massive">
-                  Traking your information and determining your location...
-                </div>
-              </div>
-            </div>
-            <img
-              src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png"
-              className="ui image"
-              alt="loading"
-            />
-          </div>
+          <Loader content="Loading your location..." />
         </React.Fragment>
       );
     }
