@@ -1,5 +1,5 @@
 import React from 'react';
-//import SeasonDisplay from './components/SeasonDisplay/SeasonDisplay';
+import SeasonDisplay from './components/SeasonDisplay/SeasonDisplay';
 
 class App extends React.Component {
   state = { lat: null, errMsg: '' };
@@ -35,7 +35,7 @@ class App extends React.Component {
     } else if (this.state.lat && !this.state.errMsg) {
       return (
         <React.Fragment>
-          <div>Latitude: {this.state.lat}</div>
+          <SeasonDisplay lat={this.state.lat} />
         </React.Fragment>
       );
     } else if (!this.state.errMsg && !this.state.lat) {
