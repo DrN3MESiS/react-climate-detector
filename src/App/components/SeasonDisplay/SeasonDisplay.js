@@ -1,3 +1,4 @@
+import '../../resources/css/SeasonDisplay.css';
 import React from 'react';
 
 const seasonConfig = {
@@ -25,15 +26,19 @@ const SeasonDisplay = props => {
   const season = getSeason(props.lat, new Date().getMonth());
   const { text, iconName, color } = seasonConfig[season];
   return (
-    <div align="CENTER" style={{ paddingTop: 1 + 'rem' }}>
+    <div
+      align="CENTER"
+      style={{ paddingTop: 1 + 'rem' }}
+      className={`season-display ${season}`}
+    >
       <i
         aria-hidden="true"
-        className={`${iconName} loading icon massive ${color}`}
+        className={`${iconName} icon-left loading icon massive ${color}`}
       />
-      <h1>{text}</h1>
+      <h1 className="mainText">{text}</h1>
       <i
         aria-hidden="true"
-        className={`${iconName} loading icon massive ${color}`}
+        className={`${iconName} icon-right loading icon massive ${color}`}
       />
     </div>
   );
