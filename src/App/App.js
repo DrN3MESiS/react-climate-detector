@@ -42,7 +42,7 @@ class App extends React.Component {
     } else if (!this.state.errMsg && !this.state.lat) {
       return (
         <React.Fragment>
-          <Loader content="Loading your location..." />
+          <Loader content="Loading your location... (Please allow us to use your location by accepting the request)" />
         </React.Fragment>
       );
     }
