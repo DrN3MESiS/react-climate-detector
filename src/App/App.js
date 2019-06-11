@@ -2,20 +2,26 @@ import React from 'react';
 //import SeasonDisplay from './components/SeasonDisplay/SeasonDisplay';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { lat: null, errMsg: '' };
+  state = { lat: null, errMsg: '' };
 
+  componentDidMount() {
+    console.log('Getting user location...');
     window.navigator.geolocation.getCurrentPosition(
       position => {
         this.setState({ lat: position.coords.latitude });
+        console.log('Success');
       },
       err => {
         this.setState({
           errMsg: err.message,
         });
+        console.log('Error, user did not accept the request');
       },
     );
+  }
+
+  componentDidUpdate() {
+    console.log('Data has been updated...');
   }
 
   //Basic equirement
